@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROAD ACCIDENT SEVERITY PREDICTION</title>
+    <link href="static/css/styleinput.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Your Info</h1><br>
+        <form id="accident-form" method="POST" action="/result">
+            <!-- Civil Twilight -->
+            <div class="form-group">
+                <label for="Civil_Twilight">Civil Twilight</label>
+                <select name="Civil_Twilight" id="Civil_Twilight" required>
+                    <option value="-1" selected>--- Select ---</option>
+                    <option value="1">Night</option>
+                    <option value="0">Day</option>
+                </select>
+            </div>
+
+            <!-- Side -->
+            <div class="form-group">
+                <label for="Side">Side</label>
+                <select name="Side" id="Side" required>
+                    <option value="-1" selected>--- Select ---</option>
+                    <option value="1">R</option>
+                    <option value="0">L</option>
+                </select>
+            </div>
+
+            <!-- Temperature -->
+            <div class="form-group">
+                <label for="Temperature_f">Temperature (°F) (-20.0 - 116.6):</label>
+                <!--<input type="number" id="Temperature_f" name="Temperature_f" min="-20.0" max="116.6" step="0.1" placeholder="-20.0 - 116.6" required> -->
+                <input type="number" name="Temperature_f" id="float-select" min="-20.0" max="116.6" step="0.1" placeholder="-20.0 - 116.6">
+
+            </div>
+
+            <!-- Visibility -->
+            <div class="form-group">
+                <label for="Visibility_mi">Visibility (mi) (0.1 - 50.0):</label>
+                <input type="number" id="Visibility_mi" name="Visibility_mi" min="0.1" max="50.0" step="0.1" placeholder="0.1 - 50.0" required>
+            </div>
+
+            <!-- Weather Condition -->
+            <div class="form-group">
+                <label for="Weather_Condition">Weather Condition</label>
+                <select name="Weather_Condition" id="Weather_Condition" required>
+                    <option value="-1" selected>--- Select ---</option>
+                    <option value="0">Blowing Snow</option>
+                    <option value="1">Clear</option>
+                    <option value="2">Drizzle</option>
+                                    <option value="3">Fog</option>
+                                    <option value="4">Haze</option>
+                                    <option value="5">Heavy Drizzle</option>
+                                    <option value="6">Heavy Rain</option>
+                                    <option value="7">Heavy Rain Showers</option>
+                                    <option value="8">Heavy Snow</option>
+                                    <option value="9">Heavy Thunderstorms and Rain</option>
+                                    <option value="10">Heavy Thunderstorms with Small Hail</option>
+                                    <option value="11">Ice Pellets</option>
+                                    <option value="12">Light Drizzle</option>
+                                    <option value="13">Light Fog</option>
+                                    <option value="14">Light Freezing Drizzle</option>
+                                    <option value="15">Light Freezing Fog</option>
+                                    <option value="16">Light Freezing Rain</option>
+                                    <option value="17">Light Hail</option>
+                                    <option value="18">Light Haze</option>
+                                    <option value="19">Light Ice Pellets</option>
+                                    <option value="20">Light Rain</option>
+                                    <option value="21">Light Rain Showers</option>
+                                    <option value="22">Light Snow</option>
+                                    <option value="23">Light Snow Showers</option>
+                                    <option value="24">Light Thunderstorms and Rain</option>
+                                    <option value="25">Light Thunderstorms and Snow</option>
+                                    <option value="26">Mist</option>
+                                    <option value="27">Mostly Cloudy</option>
+                                    <option value="28">Overcast</option>
+                                    <option value="29">Partly Cloudy</option>
+                                    <option value="30">Patches of Fog</option>
+                                    <option value="31">Rain</option>
+                                    <option value="32">Rain Showers</option>
+                                    <option value="33">Sand</option>
+                                    <option value="34">Scattered Clouds</option>
+                                    <option value="35">Shallow Fog</option>
+                                    <option value="36">Small Hail</option>
+                                    <option value="37">Smoke</option>
+                                    <option value="38">Snow</option>
+                                    <option value="39">Squalls</option>
+                                    <option value="40">Thunderstorm</option>
+                                    <option value="41">Thunderstorms and Rain</option>
+                                    <option value="42">Thunderstorms and Snow</option>
+                                    <option value="43">Volcanic Ash</option>
+                                    <option value="44">Widespread Dust</option>
+                                    <!-- Add other options here as needed -->
+                </select>
+            </div>
+
+            <!-- Wind Direction -->
+            <div class="form-group">
+                <label for="Wind_Direction">Wind Direction</label>
+                <select name="Wind_Direction" id="Wind_Direction" required>
+                    <option value="-1" selected>--- Select ---</option>
+                    <option value="0">NE</option>
+                    <option value="1">NNW</option>
+                    <option value="2">North</option>
+                            <option value="3">SSE</option>
+                            <option value="4">South</option>
+                            <option value="5">Variable</option>
+                            <option value="6">Calm</option>
+                            <option value="7">ENE</option>
+                            <option value="8">ESE</option>
+                            <option value="9">East</option>
+                            <option value="10">NNE</option>
+                            <option value="11">SE</option>
+                            <option value="12">SW</option>
+                            <option value="13">NW</option>
+                            <option value="14">SSW</option>
+                            <option value="15">WSW</option>
+                            <option value="16">West</option>
+                            <option value="17">WNW</option>
+                    <!-- Add other options here as needed -->
+                </select>
+            </div>
+
+            <!-- Distance -->
+            <div class="form-group">
+                <label for="Distance_mi">Distance (mi) (0.0 - 224.59):</label>
+                <input type="number" id="Distance_mi" name="Distance_mi" min="0.0" max="224.5899963" step="0.01" placeholder="0.1 - 224.5899963" required>
+            </div>
+
+            <!-- Humidity -->
+            <div class="form-group">
+                <label for="Humidity_percent">Humidity (%) (4.0 - 100.0):</label>
+                <input type="number" id="Humidity_percent" name="Humidity_percent" min="4.0" max="100.0" step="0.1" placeholder="4.0 - 100.0" required>
+            </div>
+
+            <!-- Precipitation -->
+            <div class="form-group">
+                <label for="Precipitation_in">Precipitation (in) (0.0 - 10.0):</label>
+                <input type="number" id="Precipitation_in" name="Precipitation_in" min="0.0" max="10.0" step="0.000000001" placeholder="0.0 - 10.0" required>
+            </div>
+
+            <!-- Pressure -->
+            <div class="form-group">
+                <label for="Pressure_in">Pressure (in) (0.0 - 31.12):</label>
+                <input type="number" id="Pressure_in" name="Pressure_in" min="0.0" max="31.12" step="0.1" placeholder="0.0 - 31.12" required>
+            </div>
+
+            <!-- Wind Speed -->
+            <div class="form-group">
+                <label for="Wind_Speed_mph">Wind Speed (mph) (1.2 - 822.8):</label>
+                <input type="number" id="Wind_Speed_mph" name="Wind_Speed_mph" min="1.2" max="822.8" step="0.000000001" placeholder="1.2 - 822.8" required>
+            </div>
+
+            <!-- Button Group -->
+            <div class="button-group">
+                <button type="submit">Predict Severity</button>
+                <button type="button" onclick="window.location.href='/'">Home</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+
+</html>
